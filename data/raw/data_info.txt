@@ -1,0 +1,34 @@
+Dataset       : Heart Disease UCI (id=45)
+Shape         : (303, 14)
+Columns       : ['age', 'sex', 'cp', 'trestbps', 'chol', 'fbs', 'restecg', 'thalach', 'exang', 'oldpeak', 'slope', 'ca', 'thal', 'num']
+
+Data types:
+age           int64
+sex           int64
+cp            int64
+trestbps      int64
+chol          int64
+fbs           int64
+restecg       int64
+thalach       int64
+exang         int64
+oldpeak     float64
+slope         int64
+ca          float64
+thal        float64
+num           int64
+
+Missing values ('?'):
+None
+
+Missing values (NaN):
+ca      4
+thal    2
+
+Class distribution (raw):
+num
+0    164
+1     55
+2     36
+3     35
+4     13

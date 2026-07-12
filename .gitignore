@@ -1,0 +1,61 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Virtual environments
+venv/
+.venv/
+env/
+ENV/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# MLflow
+mlruns/
+
+# Models (large binaries — track with DVC if needed)
+models/*.pkl
+models/*.joblib
+
+# Docker
+.docker/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# MS Office temp / lock files
+~$*
+*.tmp
+~WRL*.tmp
+
+# Testing & coverage
+.pytest_cache/
+.coverage
+coverage.xml
+htmlcov/
+
+# Ruff / linting
+.ruff_cache/
+
+# Environment files with secrets
+.env
+.env.local
+
+# Pip freeze snapshots (reference only)
+requirements_frozen.txt

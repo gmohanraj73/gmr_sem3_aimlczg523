@@ -1,0 +1,56 @@
+# Kubernetes Deployment for the Heart Disease Risk Predictor API
+# BITS Pilani AIMLCZG523 · Assignment 01
+#
+# IMPORTANT: replace the image below with your pushed image, e.g.
+#   <DOCKERHUB_USERNAME>/heart-disease-api:v1   or
+#   ghcr.io/<GITHUB_USERNAME>/heart-disease-api:v1
+# For a local Minikube image (built with `minikube image build` or
+# `minikube image load heart-disease-api:v1`), also set
+#   imagePullPolicy: Never
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: heart-disease-api
+  labels:
+    app: heart-disease-api
+    version: v1
+    tier: backend
+    course: aimlczg523
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: heart-disease-api
+  template:
+    metadata:
+      labels:
+        app: heart-disease-api
+        version: v1
+    spec:
+      containers:
+        - name: heart-disease-api
+          image: heart-disease-api:v1
+          # Local image loaded via `minikube image load heart-disease-api:v1`;
+          # Never pull from a remote registry.
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8000
+          resources:
+            requests:
+              memory: "256Mi"
+              cpu: "250m"
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8000
+            initialDelaySeconds: 10
+            periodSeconds: 30
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8000
+            initialDelaySeconds: 5
+            periodSeconds: 10

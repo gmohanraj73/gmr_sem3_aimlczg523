@@ -1,0 +1,11 @@
+# Prometheus scrape configuration for the Heart Disease API
+# BITS Pilani AIMLCZG523 · Assignment 01
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+scrape_configs:
+  - job_name: 'heart-disease-api'
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['api:8000']   # 'api' resolves via the compose 'monitoring' network
